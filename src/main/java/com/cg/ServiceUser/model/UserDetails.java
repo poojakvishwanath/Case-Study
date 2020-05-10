@@ -4,9 +4,6 @@ import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
-
-
-
 public class UserDetails {
 
 	@Id
@@ -14,6 +11,7 @@ public class UserDetails {
 	private String accountName;
 	private Date validityDate;
 	private int cvvNumber;
+	
 	public long getCardNumber() {
 		return cardNumber;
 	}
