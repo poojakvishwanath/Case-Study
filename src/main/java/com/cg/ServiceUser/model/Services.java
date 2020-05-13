@@ -1,51 +1,44 @@
 package com.cg.ServiceUser.model;
 
+import java.util.Arrays;
 import java.util.Date;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+@Document(collection="Services")
 
 public class Services {
 
-	private String carWash;
-	private String carWipe;
-	private String cleanAndDress;
+	private String[] washServices;
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date scheduledCarWash;
-	
-	public String getCarWash() {
-		return carWash;
-	}
-	public void setCarWash(String carWash) {
-		this.carWash = carWash;
-	}
-	public String getCarWipe() {
-		return carWipe;
-	}
-	public void setCarWipe(String carWipe) {
-		this.carWipe = carWipe;
-	}
-	public String getCleanAndDress() {
-		return cleanAndDress;
-	}
-	public void setCleanAndDress(String cleanAndDress) {
-		this.cleanAndDress = cleanAndDress;
-	}
-	public Date getScheduledCarWash() {
-		return scheduledCarWash;
-	}
-	public void setScheduledCarWash(Date scheduledCarWash) {
-		this.scheduledCarWash = scheduledCarWash;
-	}
-	public Services(String carWash, String carWipe, String cleanAndDress, Date scheduledCarWash) {
+
+
+	public Services(String[] washServices, Date scheduledCarWash) {
 		super();
-		this.carWash = carWash;
-		this.carWipe = carWipe;
-		this.cleanAndDress = cleanAndDress;
+		this.washServices = washServices;
 		this.scheduledCarWash = scheduledCarWash;
 	}
+
+
 	public Services() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
+
+
+	@Override
+	public String toString() {
+		return "Services [washServices=" + Arrays.toString(washServices) + ", scheduledCarWash=" + scheduledCarWash
+				+ "]";
+	}
+
+
+
+
+
+
+
+
 }

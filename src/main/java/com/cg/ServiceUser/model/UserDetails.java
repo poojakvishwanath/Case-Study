@@ -1,15 +1,21 @@
 package com.cg.ServiceUser.model;
 
-import java.util.Date;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+@Document(collection="UserDetails")
 public class UserDetails {
 
 	@Id
 	private long cardNumber;
+	@NotEmpty(message="Shouldn't be empty")
 	private String accountName;
-	private Date validityDate;
+	@JsonFormat(pattern="dd-MM-yyyy")
+	private String validityDate;
+	@NotEmpty(message="Shouldn't be empty")
 	private int cvvNumber;
 	
 	public long getCardNumber() {
@@ -24,10 +30,10 @@ public class UserDetails {
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
 	}
-	public Date getValidityDate() {
+	public String getValidityDate() {
 		return validityDate;
 	}
-	public void setValidityDate(Date validityDate) {
+	public void setValidityDate(String validityDate) {
 		this.validityDate = validityDate;
 	}
 	public int getCvvNumber() {
@@ -37,7 +43,7 @@ public class UserDetails {
 		this.cvvNumber = cvvNumber;
 	}
 	
-	public UserDetails(long cardNumber, String accountName, Date validityDate, int cvvNumber, String loationAddress,
+	public UserDetails(long cardNumber, String accountName, String validityDate, int cvvNumber, String loationAddress,
 			String carNumber) {
 		super();
 		this.cardNumber = cardNumber;
@@ -52,8 +58,11 @@ public class UserDetails {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@NotEmpty(message="Shouldn't be empty")
 	private String loationAddress;
+	@NotEmpty(message="Shouldn't be empty")
 	private String carNumber;
+	
 	public String getLoationAddress() {
 		return loationAddress;
 	}
@@ -66,5 +75,12 @@ public class UserDetails {
 	public void setCarNumber(String carNumber) {
 		this.carNumber = carNumber;
 	}
+	@Override
+	public String toString() {
+		return "UserDetails [cardNumber=" + cardNumber + ", accountName=" + accountName + ", validityDate="
+				+ validityDate + ", cvvNumber=" + cvvNumber + ", loationAddress=" + loationAddress + ", carNumber="
+				+ carNumber + "]";
+	}
+	
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,32 +9,50 @@
 </head>
 <body>
 <center>
-<h1 style="color: #0066CC">Login Details</h1>
-	<h3>Please Enter the Login Details</h3>
+<h1 style="color: #0066CC">Details</h1>
+	<h3>Please Enter the service Details</h3>
 			<table bgcolor="#DCDCDC">
 		<form:form action="serviceDetails" method="POST" modelAttribute="login">
 					<tr>
-				<th>Car number:<span style="color: red;">*</span></th>
-				<td><form:input path="carNumber" /></td>
-				<td style="color: red;"><form:errors path="userId"></form:errors></td>
+				<th>Card Number:<span style="color: red;">*</span></th>
+				<td><form:input path="cardNumber" /></td>
+				<td style="color: red;"><form:errors path="cardNumber"></form:errors></td>
 			</tr>
 		    <tr>
-				<th>Car Name:<span style="color: red;">*</span></th>
-				<td><form:input path="userName" /></td>
-				<td style="color: red;"><form:errors path="userName"></form:errors></td>
+				<th>Account Name:<span style="color: red;">*</span></th>
+				<td><form:input path="accountName" /></td>
+				<td style="color: red;"><form:errors path="accountName"></form:errors></td>
 			</tr>
 			
 			<tr>
-				<th>Password:<span style="color: red;">*</span></th>
-				<td><form:input path="password" /></td>
-				<td style="color: red;"><form:errors path="password"></form:errors></td>
+				<th>Cvv Number:<span style="color: red;">*</span></th>
+				<td><form:input path="cvvNumber" /></td>
+				<td style="color: red;"><form:errors path="cvvNumber"></form:errors></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Service Details"></input></td>
+				<th>Validity Date:<span style="color: red;">*</span></th>
+				<td><form:input path="validityDate" /></td>
+				<td style="color: red;"><form:errors path="cvvNumber"></form:errors></td>
+			</tr>
+			<tr>
+				<th>Address:<span style="color: red;">*</span></th>
+				<td><form:input path="loationAddress" /></td>
+				<td style="color: red;"><form:errors path="cvvNumber"></form:errors></td>
+			</tr>
+			<tr>
+				<th>Car Number:<span style="color: red;">*</span></th>
+				<td><form:input path="carNumber" /></td>
+				<td style="color: red;"><form:errors path="cvvNumber"></form:errors></td>
+			</tr>
+			
+			
+			<tr>
+				<td><input type="submit" value="serviceDetails"></input></td>
 			</tr>
 			<a href="home">Click here to go back</a><br/>
 		</form:form>
 	</table>
 	</center>
+
 </body>
 </html>

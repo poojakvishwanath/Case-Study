@@ -12,7 +12,7 @@
 <h1 style="color: #0066CC">Login Details</h1>
 	<h3>Please Enter the Login Details</h3>
 			<table bgcolor="#DCDCDC">
-		<form:form action="carService" method="POST" modelAttribute="login">
+		<form:form action="userPage" method="POST" modelAttribute="login">
 					<tr>
 				<th>User Id:<span style="color: red;">*</span></th>
 				<td><form:input path="userId" /></td>

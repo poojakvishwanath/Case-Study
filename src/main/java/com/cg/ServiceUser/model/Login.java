@@ -1,9 +1,6 @@
 package com.cg.ServiceUser.model;
 
-
-
-import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,9 +9,11 @@ public class Login {
 
 	@Id
 	private String userId;
-	@NotNull
+	@NotEmpty(message="Shouldn't be empty")
 	private String userName;
+	@NotEmpty(message="Shouldn't be empty")
 	private String password;
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -42,6 +41,10 @@ public class Login {
 	public Login() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "Login [userId=" + userId + ", userName=" + userName + ", password=" + password + "]";
 	}
 	
 }
